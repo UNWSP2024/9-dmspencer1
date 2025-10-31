@@ -1,3 +1,7 @@
+# Title: Average Numbers
+# Author: Dalila Spencer
+# Date: 2025-10-30
+
 # Program #3: Average Numbers
 # Assume a file containing a series of integers is named numbers.txt and exists on the computer's disk.
 # (please use the provided numbers.txt)
@@ -10,7 +14,27 @@
 # are converted to a number.
 def sum_numbers_from_file():
     ######################
-    # Add your code here #
+
+    try:
+
+        infile = open('numbers.txt', 'r')
+
+        total = 0.0
+
+        for line in infile:
+            amount = float(line)
+            total += amount
+
+        infile.close()
+
+        print(f'The total of the numbers in numbers.txt is: {total:,.2f}')
+
+    except ValueError:
+        print('ERROR: invalid number found in numbers.txt')
+
+    except IOError:
+        print('ERROR: file not found')
+
     ######################
     print('In the sum_numbers_from_file function')
 
